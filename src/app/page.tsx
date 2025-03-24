@@ -266,7 +266,7 @@ export default function Home() {
           <div className="flex gap-4 mt-4 md:mt-0">
             <Button variant="ghost" size="icon" asChild>
               <Link
-                href="https://github.com/johndoe"
+                href="https://github.com/lakshithavimukthi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -276,7 +276,7 @@ export default function Home() {
             </Button>
             <Button variant="ghost" size="icon" asChild>
               <Link
-                href="https://linkedin.com/in/johndoe"
+                href="https://www.linkedin.com/in/lakshitha-vithanaarachchi-791030301/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -285,7 +285,7 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:john@example.com">
+              <Link href="lakshithavimukthi10@gmail.com">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
