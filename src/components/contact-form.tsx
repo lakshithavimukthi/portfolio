@@ -1,43 +1,35 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export default function ContactForm() {
-  
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-     setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-    setIsSubmitting(false)
-  }
+    e.preventDefault();
+    setIsSubmitting(true);
+    toast.success("Information sent!");
+    setIsSubmitting(false);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -46,7 +38,14 @@ export default function ContactForm() {
           <label htmlFor="name" className="text-sm font-medium">
             Name
           </label>
-          <Input id="name" name="name" placeholder="Your name" required value={formData.name} onChange={handleChange} />
+          <Input
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
         </div>
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium">
@@ -94,6 +93,5 @@ export default function ContactForm() {
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
     </form>
-  )
+  );
 }
-
